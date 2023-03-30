@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Ticket {
+  id           String @id @default(cuid())
+  ticketNumber Int
+  name         String
+  description  String
+  status       Status
+}
+
+enum Status {
+  open
+  inProgress
+  codeReview
+}
