@@ -10,7 +10,7 @@ const Ticket: NextPage = () => {
   const { ticketId } = router.query;
 
   return (
-    <Page title="Dashboard">
+    <Page title="Create Ticket">
       <DashboardLayout title={"Create Ticket"} prevRoute="/">
         <Fade in={true}>
           <Box>
