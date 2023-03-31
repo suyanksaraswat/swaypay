@@ -23,11 +23,20 @@ export const exampleRouter = t.router({
       }),
     )
     .query(async ({ ctx, input }) => {
-      return await ctx.prisma.ticket.findFirst({
+      const ticket = await ctx.prisma.ticket.findFirst({
         where: {
-          id: input.id,
+          ticketNumber: parseInt(input.id),
         },
       });
+
+      if (ticket) {
+        return ticket;
+      } else {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Ticket does not exist.",
+        });
+      }
     }),
 
   createTicket: t.procedure
@@ -57,7 +66,7 @@ export const exampleRouter = t.router({
 
       const ticket = await ctx.prisma.ticket.findFirst({
         where: {
-          id: input.id,
+          ticketNumber: parseInt(input.id),
         },
       });
 

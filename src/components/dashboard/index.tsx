@@ -89,7 +89,7 @@ const Dashboard = () => {
 
                         <IconButton
                           size="small"
-                          onClick={() => router.push(`/ticket/${ticket.id}`)}
+                          onClick={() => router.push(`/ticket/${ticket.ticketNumber}`)}
                         >
                           <EditIcon fontSize="small" />
                         </IconButton>

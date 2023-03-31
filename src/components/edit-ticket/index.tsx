@@ -57,7 +57,13 @@ const EditTicket = ({ id }: EditTicketI) => {
     );
   };
 
-  return (
+  return !isFetching && error ? (
+    <Box>
+      <Typography variant="h4" color="error">
+        {error?.message}
+      </Typography>
+    </Box>
+  ) : (
     <Box>
       <Box display="flex" justifyContent="center">
         <Card sx={{ p: 4, maxWidth: 600, width: "100%" }}>
