@@ -13,6 +13,7 @@ import { COLOR_STYLES } from "../../ui-library/config";
 import { trpc } from "../../utils/trpc";
 import { useRouter } from "next/router";
 import { STATUS } from "../../utils/constants";
+import { useEffect } from "react";
 
 const Dashboard = () => {
   const router = useRouter();
@@ -23,6 +24,42 @@ const Dashboard = () => {
       refetchOnWindowFocus: false,
     },
   );
+
+  useEffect(() => {
+    const handleOrientationEvent = (
+      frontToBack: number | null,
+      leftToRight: number | null,
+      rotateDegrees: number | null,
+    ) => {
+      console.log("###### orient-", frontToBack, leftToRight, rotateDegrees);
+    };
+
+    window.addEventListener(
+      "deviceorientation",
+      (event) => {
+        const rotateDegrees = event.alpha; // alpha: rotation around z-axis
+        const leftToRight = event.gamma; // gamma: left to right
+        const frontToBack = event.beta; // beta: front back motion
+
+        handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
+      },
+      true,
+    );
+
+    return () => {
+      window.removeEventListener(
+        "deviceorientation",
+        (event) => {
+          const rotateDegrees = event.alpha; // alpha: rotation around z-axis
+          const leftToRight = event.gamma; // gamma: left to right
+          const frontToBack = event.beta; // beta: front back motion
+
+          handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
+        },
+        true,
+      );
+    };
+  }, []);
 
   return (
     <Grid container spacing={2}>
@@ -89,7 +126,9 @@ const Dashboard = () => {
 
                         <IconButton
                           size="small"
-                          onClick={() => router.push(`/ticket/${ticket.ticketNumber}`)}
+                          onClick={() =>
+                            router.push(`/ticket/${ticket.ticketNumber}`)
+                          }
                         >
                           <EditIcon fontSize="small" />
                         </IconButton>
