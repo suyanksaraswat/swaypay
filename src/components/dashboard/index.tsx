@@ -14,83 +14,38 @@ import { trpc } from "../../utils/trpc";
 import { useRouter } from "next/router";
 import { STATUS } from "../../utils/constants";
 import { useEffect, useState } from "react";
+import { useDeviceOrientation } from "../../utils/useDeviceOrientation";
 
 const divideBy = 3;
 
 const Dashboard = () => {
-  const router = useRouter();
-  const [data, setData] = useState<{
-    frontToBack: number | null;
-    leftToRight: number | null;
-    rotateDegrees: number | null;
-  }>({
-    frontToBack: null,
-    leftToRight: null,
-    rotateDegrees: null,
-  });
+  const { orientation, requestAccess, revokeAccess, error } =
+    useDeviceOrientation();
 
   useEffect(() => {
-    const handleOrientationEvent = (
-      frontToBack: number | null,
-      leftToRight: number | null,
-      rotateDegrees: number | null,
-    ) => {
-      console.log("###### orient-", frontToBack, leftToRight, rotateDegrees);
+    console.log("#### orientation", orientation);
+    const ele = document.getElementById("tilting-card-body");
 
-      const ele = document.getElementById("tilting-card-body");
+    const frontToBack = orientation?.alpha;
+    const leftToRight = orientation?.beta;
+    const rotateDegrees = orientation?.gamma;
 
-      if (ele) {
-        console.log("#### ele", ele);
-        ele.style["transform"] = `perspective(400px) rotateX(${
-          frontToBack ? frontToBack / divideBy : 0
-        }deg) rotateY(${leftToRight ? leftToRight / divideBy : 0}deg) rotateZ(${
-          rotateDegrees ? (rotateDegrees - 90) / divideBy : 0
-        }deg)`;
-      }
+    if (ele) {
+      console.log("#### ele", ele);
 
-      setData({
-        frontToBack,
-        leftToRight,
-        rotateDegrees,
-      });
-    };
-
-    if (typeof (DeviceMotionEvent as any).requestPermission === "function") {
-      // Handle iOS 13+ devices.
-      (DeviceMotionEvent as any)
-        .requestPermission()
-        .then((state: string) => {
-          if (state === "granted") {
-            window.addEventListener(
-              "deviceorientation",
-              (event) => {
-                handleOrientationEvent(event.alpha, event.gamma, event.beta);
-              },
-              true,
-            );
-          } else {
-            console.error("Request to access the orientation was rejected");
-          }
-        })
-        .catch(console.error);
-    } else {
-      window.addEventListener(
-        "deviceorientation",
-        (event) => {
-          handleOrientationEvent(event.alpha, event.gamma, event.beta);
-        },
-        true,
-      );
+      ele.style["transform"] = `perspective(400px) rotateX(${
+        frontToBack ? frontToBack / divideBy : 0
+      }deg) rotateY(${leftToRight ? leftToRight / divideBy : 0}deg) rotateZ(${
+        rotateDegrees ? (rotateDegrees - 90) / divideBy : 0
+      }deg)`;
     }
+  }, [orientation]);
+
+  useEffect(() => {
+    requestAccess();
 
     return () => {
-      window.removeEventListener(
-        "deviceorientation",
-        (event) => {
-          handleOrientationEvent(event.alpha, event.gamma, event.beta);
-        },
-        true,
-      );
+      revokeAccess();
     };
   }, []);
 
