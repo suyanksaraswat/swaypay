@@ -159,7 +159,7 @@ const Dashboard = () => {
           </Box>
         </Box>
 
-        <Box display="flex" justifyContent="center" mt={2}>
+        <Box display="flex" justifyContent="center" mt={4}>
           <Typography variant="h3" textAlign="center">
             HONESTLY, NEVERMIND
           </Typography>
