@@ -44,7 +44,7 @@ const Dashboard = () => {
         ele.style["transform"] = `perspective(400px) rotateX(${
           frontToBack ? frontToBack / divideBy : 0
         }deg) rotateY(${leftToRight ? leftToRight / divideBy : 0}deg) rotateZ(${
-          rotateDegrees ? rotateDegrees - 90 / divideBy : 0
+          rotateDegrees ? (rotateDegrees - 90) / divideBy : 0
         }deg)`;
       }
 
@@ -143,6 +143,7 @@ const Dashboard = () => {
               backdropFilter: "blur(21px)",
               p: 1.5,
               transition: "transform 500ms ease",
+              // transform: `perspective(400px) rotateX(0.18deg) rotateY(-0.01deg) rotateZ(0deg)`,
             }}
           >
             <Box
