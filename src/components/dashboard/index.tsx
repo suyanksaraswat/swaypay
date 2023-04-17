@@ -36,7 +36,7 @@ const Dashboard = () => {
       ele.style["transform"] = `perspective(400px) rotateX(${
         frontToBack ? frontToBack / divideBy : 0
       }deg) rotateY(${leftToRight ? leftToRight / divideBy : 0}deg) rotateZ(${
-        rotateDegrees ? (rotateDegrees - 90) / divideBy : 0
+        rotateDegrees ? rotateDegrees / divideBy : 0
       }deg)`;
     }
   }, [orientation]);
