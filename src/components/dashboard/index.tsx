@@ -41,8 +41,12 @@ const Dashboard = () => {
     }
   }, [orientation]);
 
+  const getAccess = async () => {
+    await requestAccess();
+  };
+
   useEffect(() => {
-    requestAccess();
+    getAccess();
 
     return () => {
       revokeAccess();
