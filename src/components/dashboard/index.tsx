@@ -119,7 +119,7 @@ const Dashboard = () => {
               backdropFilter: "blur(21px)",
               p: 1.5,
               transition: "transform 500ms ease",
-              transform: `rotateX(0deg) rotateY(0deg) rotateZ(0deg)`,
+              transform: cssTransformInverse?.transform,
             }}
           >
             <Box
