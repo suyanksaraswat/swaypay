@@ -141,6 +141,11 @@ const Dashboard = () => {
             Drake
           </Typography>
         </Box>
+        <Box display="flex" justifyContent="center" mt={1}>
+          <Typography variant="caption" textAlign="center" color="text.secondary">
+            {orientation && JSON.stringify(orientation)}
+          </Typography>
+        </Box>
 
         {/* <Box display="flex" justifyContent="center" mt={1}>
           <Typography variant="body1" textAlign="center" color="text.secondary">
