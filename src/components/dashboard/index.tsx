@@ -55,27 +55,39 @@ const Dashboard = () => {
       });
     };
 
-    window.addEventListener(
-      "deviceorientation",
-      (event) => {
-        const rotateDegrees = event.alpha; // alpha: rotation around z-axis
-        const leftToRight = event.gamma; // gamma: left to right
-        const frontToBack = event.beta; // beta: front back motion
-
-        handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
-      },
-      true,
-    );
+    if (typeof (DeviceMotionEvent as any).requestPermission === "function") {
+      // Handle iOS 13+ devices.
+      (DeviceMotionEvent as any)
+        .requestPermission()
+        .then((state: string) => {
+          if (state === "granted") {
+            window.addEventListener(
+              "deviceorientation",
+              (event) => {
+                handleOrientationEvent(event.alpha, event.gamma, event.beta);
+              },
+              true,
+            );
+          } else {
+            console.error("Request to access the orientation was rejected");
+          }
+        })
+        .catch(console.error);
+    } else {
+      window.addEventListener(
+        "deviceorientation",
+        (event) => {
+          handleOrientationEvent(event.alpha, event.gamma, event.beta);
+        },
+        true,
+      );
+    }
 
     return () => {
       window.removeEventListener(
         "deviceorientation",
         (event) => {
-          const rotateDegrees = event.alpha; // alpha: rotation around z-axis
-          const leftToRight = event.gamma; // gamma: left to right
-          const frontToBack = event.beta; // beta: front back motion
-
-          handleOrientationEvent(frontToBack, leftToRight, rotateDegrees);
+          handleOrientationEvent(event.alpha, event.gamma, event.beta);
         },
         true,
       );
