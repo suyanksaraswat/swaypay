@@ -134,6 +134,7 @@ const Dashboard = () => {
           <div className="mouse-position-tracker"></div>
           <Box
             className="tilting-card-body"
+            key={transform}
             sx={{
               borderRadius: 2,
               background:
