@@ -27,10 +27,6 @@ const Dashboard = () => {
     rotateDegrees: null,
   });
 
-  const [transform, setTransform] = useState(
-    "perspective(400px) rotateX(5deg) rotateY(5deg) rotateZ(5deg)",
-  );
-
   useEffect(() => {
     const handleOrientationEvent = (
       frontToBack: number | null,
@@ -39,13 +35,12 @@ const Dashboard = () => {
     ) => {
       console.log("###### orient-", frontToBack, leftToRight, rotateDegrees);
 
-      setTransform(
-        `perspective(400px) rotateX(${
-          frontToBack ? frontToBack / 10 : 0
-        }deg) rotateY(${leftToRight ? leftToRight / 10 : 0}deg) rotateZ(${
-          rotateDegrees ? rotateDegrees / 10 : 0
-        }deg)`,
-      );
+      const ele = document.getElementById("tilting-card-body");
+  
+      if (ele) {
+        console.log("#### ele", ele);
+        ele.style['transform'] = "perspective(400px) rotateX(0deg) rotateY(15deg) rotateZ(0deg)"
+      }
 
       setData({
         frontToBack,
@@ -133,16 +128,14 @@ const Dashboard = () => {
           <div className="mouse-position-tracker"></div>
           <div className="mouse-position-tracker"></div>
           <Box
+            id="tilting-card-body"
             className="tilting-card-body"
-            key={transform}
             sx={{
               borderRadius: 2,
               background:
                 "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0.52%, rgba(255, 255, 255, 0) 93.27%)",
               backdropFilter: "blur(21px)",
               p: 1.5,
-
-              transform,
               transition: "transform 500ms ease",
             }}
           >
