@@ -119,7 +119,7 @@ const Dashboard = () => {
               backdropFilter: "blur(21px)",
               p: 1.5,
               transition: "transform 500ms ease",
-              transform: cssTransformInverse?.transform,
+              transform: `rotateX(0deg) rotateY(0deg) rotateZ(0deg)`,
             }}
           >
             <Box
@@ -146,7 +146,12 @@ const Dashboard = () => {
             Drake
           </Typography>
         </Box>
-        <Box display="flex" justifyContent="center" mt={1}>
+        <Box
+          display="flex"
+          justifyContent="center"
+          mt={1}
+          sx={{ maxWidth: 200 }}
+        >
           <Typography
             variant="caption"
             textAlign="center"
@@ -154,19 +159,15 @@ const Dashboard = () => {
           >
             {orientation && JSON.stringify(orientation)}
           </Typography>
-          <Typography
-            variant="caption"
-            textAlign="center"
-            color="text.secondary"
-          >
-            {/* @ts-ignore */}
-            permission:{" "}
-            {typeof DeviceMotionEvent !== "undefined" &&
-            typeof (DeviceMotionEvent as any).requestPermission === "function"
-              ? "true"
-              : "false"}
-          </Typography>
         </Box>
+        <Typography variant="caption" textAlign="center" color="text.secondary">
+          {/* @ts-ignore */}
+          permission:{" "}
+          {typeof DeviceMotionEvent !== "undefined" &&
+          typeof (DeviceMotionEvent as any).requestPermission === "function"
+            ? "true"
+            : "false"}
+        </Typography>
       </Box>
 
       <Box sx={{ p: 3, position: "absolute", width: "100%", bottom: 0 }}>
