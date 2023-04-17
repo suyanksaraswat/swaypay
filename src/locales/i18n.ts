@@ -1,15 +1,10 @@
-import { defaultLang } from "../ui-library/config";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import enLocales from "./en";
 import frLocales from "./fr";
 import i18n from "i18next";
 
-let lng = defaultLang?.value;
-
-if (typeof window !== "undefined") {
-  lng = localStorage.getItem("i18nextLng") || defaultLang?.value;
-}
+let lng = "";
 
 i18n
   .use(LanguageDetector)
@@ -33,7 +28,7 @@ i18n
       lookupFromPathIndex: 1,
     },
     lng,
-    fallbackLng: defaultLang?.value,
+    fallbackLng: lng,
     debug: false,
     ns: ["translations"],
     defaultNS: "translations",
