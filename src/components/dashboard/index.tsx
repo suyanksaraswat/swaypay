@@ -16,7 +16,7 @@ import { STATUS } from "../../utils/constants";
 import { useEffect, useState } from "react";
 import { useDeviceOrientation } from "../../utils/useDeviceOrientation";
 
-const divideBy = 3;
+const divideBy = 1;
 
 const Dashboard = () => {
   const { orientation, requestAccess, revokeAccess, error } =
@@ -27,8 +27,8 @@ const Dashboard = () => {
     const ele = document.getElementById("tilting-card-body");
 
     const frontToBack = orientation?.alpha;
-    const leftToRight = orientation?.beta;
-    const rotateDegrees = orientation?.gamma;
+    const leftToRight = orientation?.gamma;
+    const rotateDegrees = orientation?.beta;
 
     if (ele) {
       console.log("#### ele", ele);
@@ -142,7 +142,11 @@ const Dashboard = () => {
           </Typography>
         </Box>
         <Box display="flex" justifyContent="center" mt={1}>
-          <Typography variant="caption" textAlign="center" color="text.secondary">
+          <Typography
+            variant="caption"
+            textAlign="center"
+            color="text.secondary"
+          >
             {orientation && JSON.stringify(orientation)}
           </Typography>
         </Box>
