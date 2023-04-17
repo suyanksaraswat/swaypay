@@ -156,8 +156,10 @@ const Dashboard = () => {
           >
             {/* @ts-ignore */}
             permission:{" "}
-            {DeviceOrientationEvent &&
-              (DeviceOrientationEvent as any).requestPermission}
+            {typeof DeviceMotionEvent !== "undefined" &&
+            typeof (DeviceMotionEvent as any).requestPermission === "function"
+              ? "true"
+              : "false"}
           </Typography>
         </Box>
       </Box>
