@@ -154,8 +154,7 @@ const Dashboard = () => {
             textAlign="center"
             color="text.secondary"
           >
-            {/* @ts-ignore */}
-            permission: {DeviceOrientationEvent.requestPermission}
+            permission: {(DeviceOrientationEvent as any).requestPermission}
           </Typography>
         </Box>
       </Box>
