@@ -44,7 +44,7 @@ const Dashboard = () => {
         ele.style["transform"] = `perspective(400px) rotateX(${
           frontToBack ? frontToBack / divideBy : 0
         }deg) rotateY(${leftToRight ? leftToRight / divideBy : 0}deg) rotateZ(${
-          rotateDegrees ? rotateDegrees - 90 / divideBy : 0
+          rotateDegrees ? rotateDegrees + 90 / divideBy : 0
         }deg)`;
       }
 
@@ -66,6 +66,15 @@ const Dashboard = () => {
       },
       true,
     );
+
+    const ele = document.getElementById("tilting-card-body");
+
+    // if (ele) {
+    //   console.log("#### ele", ele);
+    //   ele.style["transform"] = `perspective(400px) rotateX(${
+    //     1.8 / divideBy
+    //   }deg) rotateY(${0 / divideBy}deg) rotateZ(${180 / divideBy}deg)`;
+    // }
 
     return () => {
       window.removeEventListener(
