@@ -15,6 +15,8 @@ import { useRouter } from "next/router";
 import { STATUS } from "../../utils/constants";
 import { useEffect, useState } from "react";
 
+const divideBy = 5
+
 const Dashboard = () => {
   const router = useRouter();
   const [data, setData] = useState<{
@@ -40,9 +42,9 @@ const Dashboard = () => {
       if (ele) {
         console.log("#### ele", ele);
         ele.style["transform"] = `perspective(400px) rotateX(${
-          frontToBack ? frontToBack / 10 : 0
-        }deg) rotateY(${leftToRight ? leftToRight / 10 : 0}deg) rotateZ(${
-          rotateDegrees ? rotateDegrees / 10 : 0
+          frontToBack ? frontToBack / divideBy : 0
+        }deg) rotateY(${leftToRight ? leftToRight / divideBy : 0}deg) rotateZ(${
+          rotateDegrees ? rotateDegrees / divideBy : 0
         }deg)`;
       }
 
