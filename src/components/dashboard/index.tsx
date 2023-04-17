@@ -19,27 +19,32 @@ import { useDeviceOrientation } from "../../utils/useDeviceOrientation";
 const divideBy = 1;
 
 const Dashboard = () => {
-  const { orientation, requestAccess, revokeAccess, error } =
-    useDeviceOrientation();
+  const {
+    orientation,
+    requestAccess,
+    revokeAccess,
+    error,
+    cssTransformInverse,
+  } = useDeviceOrientation();
 
-  useEffect(() => {
-    console.log("#### orientation", orientation);
-    const ele = document.getElementById("tilting-card-body");
+  // useEffect(() => {
+  //   console.log("#### orientation", orientation);
+  //   const ele = document.getElementById("tilting-card-body");
 
-    const frontToBack = orientation?.alpha;
-    const leftToRight = orientation?.beta;
-    const rotateDegrees = orientation?.gamma;
+  //   const frontToBack = orientation?.alpha;
+  //   const leftToRight = orientation?.beta;
+  //   const rotateDegrees = orientation?.gamma;
 
-    if (ele) {
-      console.log("#### ele", ele);
+  //   if (ele) {
+  //     console.log("#### ele", ele);
 
-      ele.style["transform"] = `perspective(400px) rotateX(${
-        frontToBack ? frontToBack / divideBy : 0
-      }deg) rotateY(${leftToRight ? leftToRight / divideBy : 0}deg) rotateZ(${
-        rotateDegrees ? rotateDegrees / divideBy : 0
-      }deg)`;
-    }
-  }, [orientation]);
+  //     ele.style["transform"] = `perspective(400px) rotateX(${
+  //       frontToBack ? frontToBack / divideBy : 0
+  //     }deg) rotateY(${leftToRight ? leftToRight / divideBy : 0}deg) rotateZ(${
+  //       rotateDegrees ? rotateDegrees / divideBy : 0
+  //     }deg)`;
+  //   }
+  // }, [orientation]);
 
   const getAccess = async () => {
     await requestAccess();
@@ -114,7 +119,7 @@ const Dashboard = () => {
               backdropFilter: "blur(21px)",
               p: 1.5,
               transition: "transform 500ms ease",
-              // transform: `perspective(400px) rotateX(0.18deg) rotateY(-0.01deg) rotateZ(0deg)`,
+              transform: cssTransformInverse?.transform,
             }}
           >
             <Box
