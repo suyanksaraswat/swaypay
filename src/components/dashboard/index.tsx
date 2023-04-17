@@ -36,10 +36,14 @@ const Dashboard = () => {
       console.log("###### orient-", frontToBack, leftToRight, rotateDegrees);
 
       const ele = document.getElementById("tilting-card-body");
-  
+
       if (ele) {
         console.log("#### ele", ele);
-        ele.style['transform'] = "perspective(400px) rotateX(0deg) rotateY(15deg) rotateZ(0deg)"
+        ele.style["transform"] = `perspective(400px) rotateX(${
+          frontToBack ? frontToBack / 10 : 0
+        }deg) rotateY(${leftToRight ? leftToRight / 10 : 0}deg) rotateZ(${
+          rotateDegrees ? rotateDegrees / 10 : 0
+        }deg)`;
       }
 
       setData({
