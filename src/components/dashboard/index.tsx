@@ -27,8 +27,8 @@ const Dashboard = () => {
     const ele = document.getElementById("tilting-card-body");
 
     const frontToBack = orientation?.alpha;
-    const leftToRight = orientation?.gamma;
-    const rotateDegrees = orientation?.beta;
+    const leftToRight = orientation?.beta;
+    const rotateDegrees = orientation?.gamma;
 
     if (ele) {
       console.log("#### ele", ele);
@@ -148,6 +148,14 @@ const Dashboard = () => {
             color="text.secondary"
           >
             {orientation && JSON.stringify(orientation)}
+          </Typography>
+          <Typography
+            variant="caption"
+            textAlign="center"
+            color="text.secondary"
+          >
+            {/* @ts-ignore */}
+            {DeviceOrientationEvent.requestPermission}
           </Typography>
         </Box>
 
