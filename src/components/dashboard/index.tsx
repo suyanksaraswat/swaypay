@@ -142,7 +142,7 @@ const Dashboard = () => {
                 "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0.52%, rgba(255, 255, 255, 0) 93.27%)",
               backdropFilter: "blur(21px)",
               p: 1.5,
-              transition: "transform 500ms ease",
+              transition: "transform 200ms ease",
               // transform: `perspective(400px) rotateX(0.18deg) rotateY(-0.01deg) rotateZ(0deg)`,
             }}
           >
