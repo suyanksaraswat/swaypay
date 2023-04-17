@@ -155,15 +155,9 @@ const Dashboard = () => {
             color="text.secondary"
           >
             {/* @ts-ignore */}
-            {DeviceOrientationEvent.requestPermission}
+            permission: {DeviceOrientationEvent.requestPermission}
           </Typography>
         </Box>
-
-        {/* <Box display="flex" justifyContent="center" mt={1}>
-          <Typography variant="body1" textAlign="center" color="text.secondary">
-            {JSON.stringify(data)}
-          </Typography>
-        </Box> */}
       </Box>
 
       <Box sx={{ p: 3, position: "absolute", width: "100%", bottom: 0 }}>
