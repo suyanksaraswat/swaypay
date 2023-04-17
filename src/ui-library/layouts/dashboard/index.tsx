@@ -11,10 +11,10 @@ import { useRouter } from "next/router";
 
 const MainStyle = styled("main")(({ theme }) => ({
   flexGrow: 1,
-  paddingTop: HEADER.MOBILE_HEIGHT + 24,
-  paddingBottom: HEADER.MOBILE_HEIGHT + 24,
-  paddingLeft: 24,
-  paddingRight: 24,
+  // paddingTop: HEADER.MOBILE_HEIGHT + 24,
+  // paddingBottom: HEADER.MOBILE_HEIGHT + 24,
+  // paddingLeft: 24,
+  // paddingRight: 24,
   [theme.breakpoints.up("lg")]: {
     width: "calc(100% - 320px)",
     paddingLeft: 48,
@@ -82,38 +82,6 @@ export default function DashboardLayout({
           // overflow: "hidden"
         }}
       >
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          alignItems="center"
-          gap={2}
-        >
-          <Box display="flex" alignItems="center" gap={2}>
-            {prevRoute && (
-              <IconButton onClick={() => router.push(prevRoute)}>
-                <ArrowBackIcon />
-              </IconButton>
-            )}
-
-            <Typography variant="h3">{title}</Typography>
-          </Box>
-
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            gap={2}
-          >
-            {actions?.map((res, i) => (
-              <Button key={i} variant="contained" onClick={res?.onClick}>
-                {res?.name}
-              </Button>
-            ))}
-          </Box>
-        </Box>
-
-        <Divider sx={{ marginY: 4 }} />
-
         {children}
       </MainStyle>
     </Box>
