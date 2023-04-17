@@ -157,7 +157,7 @@ const Dashboard = () => {
             textAlign="center"
             color="text.secondary"
           >
-            {orientation && JSON.stringify(orientation)}
+            {cssTransformInverse && JSON.stringify(cssTransformInverse)}
           </Typography>
         </Box>
         <Typography variant="caption" textAlign="center" color="text.secondary">
