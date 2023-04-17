@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import { STATUS } from "../../utils/constants";
 import { useEffect, useState } from "react";
 
-const divideBy = 5;
+const divideBy = 3;
 
 const Dashboard = () => {
   const router = useRouter();
@@ -171,11 +171,11 @@ const Dashboard = () => {
           </Typography>
         </Box>
 
-        <Box display="flex" justifyContent="center" mt={1}>
+        {/* <Box display="flex" justifyContent="center" mt={1}>
           <Typography variant="body1" textAlign="center" color="text.secondary">
             {JSON.stringify(data)}
           </Typography>
-        </Box>
+        </Box> */}
       </Box>
 
       <Box sx={{ p: 3, position: "absolute", width: "100%", bottom: 0 }}>
