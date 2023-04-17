@@ -142,7 +142,7 @@ const Dashboard = () => {
                 "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0.52%, rgba(255, 255, 255, 0) 93.27%)",
               backdropFilter: "blur(21px)",
               p: 1.5,
-              transition: "transform 200ms ease",
+              transition: "transform 500ms ease",
               // transform: `perspective(400px) rotateX(0.18deg) rotateY(-0.01deg) rotateZ(0deg)`,
             }}
           >
@@ -159,7 +159,7 @@ const Dashboard = () => {
           </Box>
         </Box>
 
-        <Box display="flex" justifyContent="center" mt={4}>
+        <Box display="flex" justifyContent="center" mt={2}>
           <Typography variant="h3" textAlign="center">
             HONESTLY, NEVERMIND
           </Typography>
