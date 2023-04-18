@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Card,
   Divider,
   Fade,
@@ -50,13 +51,13 @@ const Dashboard = () => {
     await requestAccess();
   };
 
-  useEffect(() => {
-    getAccess();
+  // useEffect(() => {
+  //   getAccess();
 
-    return () => {
-      revokeAccess();
-    };
-  }, []);
+  //   return () => {
+  //     revokeAccess();
+  //   };
+  // }, []);
 
   return (
     <Box
@@ -168,6 +169,8 @@ const Dashboard = () => {
             ? "true"
             : "false"}
         </Typography>
+
+        <Button onClick={getAccess}>Give Permission</Button>
       </Box>
 
       <Box sx={{ p: 3, position: "absolute", width: "100%", bottom: 0 }}>
