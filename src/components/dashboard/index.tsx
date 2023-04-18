@@ -57,9 +57,18 @@ const Dashboard = () => {
           width: "100%",
           marginTop: "80px",
           maxWidth: "400px",
+          ".glare-wrapper": {
+            borderRadius: "16px !important",
+          },
         }}
       >
-        <Tilt gyroscope={true} tiltMaxAngleX={15} tiltMaxAngleY={15}>
+        <Tilt
+          gyroscope={true}
+          tiltMaxAngleX={15}
+          tiltMaxAngleY={15}
+          glareEnable={true}
+          glareMaxOpacity={0.4}
+        >
           <Box
             sx={{
               borderRadius: 2,
@@ -72,6 +81,7 @@ const Dashboard = () => {
             <Box
               sx={{
                 width: "100%",
+                borderRadius: 2,
                 aspectRatio: "1",
                 background: "url('/assets/drake.webp')",
                 backgroundPosition: "center",
