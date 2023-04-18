@@ -83,6 +83,7 @@ specifiers:
   react-i18next: ^11.18.5
   react-lazy-load-image-component: ^1.5.5
   react-material-ui-carousel: ^3.4.2
+  react-parallax-tilt: ^1.7.129
   react-slick: ^0.29.0
   simplebar-react: ^2.4.1
   slick-carousel: ^1.8.1
@@ -151,6 +152,7 @@ dependencies:
   react-i18next: 11.18.6_vfm63zmruocgezzfl2v26zlzpy
   react-lazy-load-image-component: 1.5.6_biqbaboplfbrettd7655fr4n2y
   react-material-ui-carousel: 3.4.2_j5t2n7q6refkhweseq2cf53sbu
+  react-parallax-tilt: 1.7.129_biqbaboplfbrettd7655fr4n2y
   react-slick: 0.29.0_biqbaboplfbrettd7655fr4n2y
   simplebar-react: 2.4.3_biqbaboplfbrettd7655fr4n2y
   slick-carousel: 1.8.1
@@ -5010,6 +5012,16 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  /react-parallax-tilt/1.7.129_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Re0c6VAExDfCEbnad3XJnYQCbRLXg7q13UCQS56vyq1RHeTcEXDY2uotCz4uYVXGqSSVZJvvNK8LInq0FqYDuw==}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-slick/0.29.0_biqbaboplfbrettd7655fr4n2y:

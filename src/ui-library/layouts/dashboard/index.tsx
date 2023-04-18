@@ -17,10 +17,10 @@ const MainStyle = styled("main")(({ theme }) => ({
   // paddingRight: 24,
   [theme.breakpoints.up("lg")]: {
     width: "calc(100% - 320px)",
-    paddingLeft: 48,
-    paddingRight: 48,
-    paddingTop: HEADER.DASHBOARD_DESKTOP_HEIGHT,
-    paddingBottom: HEADER.DASHBOARD_DESKTOP_HEIGHT + 24,
+    // paddingLeft: 48,
+    // paddingRight: 48,
+    // paddingTop: HEADER.DASHBOARD_DESKTOP_HEIGHT,
+    // paddingBottom: HEADER.DASHBOARD_DESKTOP_HEIGHT + 24,
     // width: `calc(100% - ${NAVBAR.DASHBOARD_WIDTH}px)`,
     // height: `calc(100% - ${HEADER.DASHBOARD_DESKTOP_HEIGHT}px)`,
     transition: theme.transitions.create("margin-left", {
