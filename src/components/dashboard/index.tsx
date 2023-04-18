@@ -5,6 +5,18 @@ import { useDeviceOrientation } from "../../utils/useDeviceOrientation";
 const divideBy = 1;
 
 const Dashboard = () => {
+  const {
+    orientation,
+    requestAccess,
+    revokeAccess,
+    error,
+    cssTransformInverse,
+  } = useDeviceOrientation();
+
+  const getAccess = async () => {
+    await requestAccess();
+  };
+
   return (
     <Box
       sx={{
@@ -47,7 +59,7 @@ const Dashboard = () => {
           maxWidth: "400px",
         }}
       >
-        <Tilt gyroscope={true} tiltMaxAngleX={30} tiltMaxAngleY={30}>
+        <Tilt gyroscope={true} tiltMaxAngleX={15} tiltMaxAngleY={15}>
           <Box
             sx={{
               borderRadius: 2,
@@ -84,6 +96,11 @@ const Dashboard = () => {
       </Box>
 
       <Box sx={{ p: 3, position: "absolute", width: "100%", bottom: 0 }}>
+        <Box display="flex" justifyContent="center" mb={1}>
+          <Button variant="contained" onClick={getAccess}>
+            Give Permission
+          </Button>
+        </Box>
         <Box display="flex" justifyContent="center" mb={1}>
           <Typography variant="body2" textAlign="center">
             Pre-save links:
