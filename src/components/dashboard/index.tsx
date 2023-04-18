@@ -170,10 +170,10 @@ const Dashboard = () => {
             : "false"}
         </Typography>
 
-        <Button onClick={getAccess}>Give Permission</Button>
       </Box>
 
       <Box sx={{ p: 3, position: "absolute", width: "100%", bottom: 0 }}>
+        <Button variant="contained" onClick={getAccess}>Give Permission</Button>
         <Box display="flex" justifyContent="center" mb={1}>
           <Typography variant="body2" textAlign="center">
             Pre-save links:
