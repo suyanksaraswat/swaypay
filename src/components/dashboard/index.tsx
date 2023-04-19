@@ -18,130 +18,171 @@ const Dashboard = () => {
   };
 
   return (
-    <Box
-      sx={{
-        height: "100vh",
-        position: "relative",
-        width: "100%",
-        img: {
-          position: "absolute",
-          top: 0,
-          filter: "blur(15px)",
-          opacity: "0.48",
-          width: "100%",
+    <>
+      <Box
+        sx={{
           height: "100vh",
-          // transform: "scale(1.8)",
-        },
-      }}
-    >
-      <img src={"/assets/drake.webp"} alt="" />
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: 0,
-          background:
-            "linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, #0D0D0D 100%)",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
+          position: "relative",
           width: "100%",
-          height: "50vh",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
         }}
       >
-        {" "}
-      </Box>
+        <img src={"/assets/drake.webp"} alt="" className="bkg" />
 
-      <Box
-        sx={{
-          p: 3,
-          position: "absolute",
-          width: "100%",
-          marginTop: "80px",
-          maxWidth: "400px",
-          ".glare-wrapper": {
-            borderRadius: "16px !important",
-          },
-        }}
-      >
-        <Tilt
-          gyroscope={true}
-          tiltMaxAngleX={15}
-          tiltMaxAngleY={15}
-          glareEnable={true}
-          glareMaxOpacity={0.4}
+        <Box
+          sx={{
+            zIndex: 10,
+            width: "100%",
+            maxWidth: { md: "400px", xs: "300px" },
+            marginTop: { md: "10vh", xs: "5vh" },
+            ".glare-wrapper": {
+              borderRadius: "16px !important",
+            },
+          }}
         >
-          <Box
-            sx={{
-              borderRadius: 2,
-              background:
-                "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0.52%, rgba(255, 255, 255, 0) 93.27%)",
-              backdropFilter: "blur(21px)",
-              p: 1.5,
-            }}
+          <Tilt
+            gyroscope={true}
+            tiltMaxAngleX={2}
+            tiltMaxAngleY={8}
+            glareEnable={true}
+            glareMaxOpacity={0.16}
+            glarePosition="all"
           >
             <Box
               sx={{
-                width: "100%",
-                borderRadius: 2,
-                aspectRatio: "1",
-                background: "url('/assets/drake.webp')",
-                backgroundPosition: "center",
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-              }}
-            />
-          </Box>
-        </Tilt>
+                aspectRatio: "1/1.25",
+                borderRadius: 1.5,
+                background:
+                  "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0.52%, rgba(255, 255, 255, 0) 93.27%)",
+                backdropFilter: "blur(21px)",
+                p: 1.5,
+                position: "relative",
 
-        <Box display="flex" justifyContent="center" mt={2}>
-          <Typography variant="h3" textAlign="center">
-            HONESTLY, NEVERMIND
-          </Typography>
+                "&:before": {
+                  content: '""',
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  borderRadius: 1.5,
+                  border: "1px solid transparent",
+                  background:
+                    "radial-gradient(170.42% 50% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%) border-box",
+                  "-webkit-mask":
+                    "linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)",
+                  "-webkit-mask-composite": " destination-out",
+                  "mask-composite": "exclude",
+                },
+              }}
+            >
+              <img src="/assets/drake.webp" alt="" className="cover" />
+            </Box>
+          </Tilt>
         </Box>
 
-        <Box display="flex" justifyContent="center" mt={1}>
-          <Typography variant="body1" textAlign="center" color="text.secondary">
-            Drake
-          </Typography>
+        <Box
+          sx={{
+            background:
+              "linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, #0D0D0D 50%)",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            width: "100%",
+            height: "60vh",
+            position: "absolute",
+            bottom: 0,
+            zIndex: 100,
+          }}
+        >
+          {" "}
+        </Box>
+
+        <Box
+          sx={{
+            zIndex: 1000,
+            marginTop: "-50px",
+            maxWidth: { md: "380px", xs: "280px" },
+          }}
+        >
+          <Box display="flex" justifyContent="center">
+            <Typography variant="h3" textAlign="center">
+              HONESTLY, NEVERMIND
+            </Typography>
+          </Box>
+
+          <Box display="flex" justifyContent="center" mt={1}>
+            <Typography
+              variant="body1"
+              textAlign="center"
+              color="text.secondary"
+            >
+              Drake
+            </Typography>
+          </Box>
+
+          <Box sx={{ p: 1 }}>
+            {/* <Box display="flex" justifyContent="center" mb={1}>
+              <Button variant="contained" onClick={getAccess}>
+                Give Permission
+              </Button>
+            </Box> */}
+            <Box display="flex" justifyContent="center" mb={1}>
+              <Typography variant="body2" textAlign="center">
+                Pre-save links:
+              </Typography>
+            </Box>
+
+            <Box display="flex" justifyContent="center">
+              <Box
+                sx={{
+                  width: 48,
+                  height: 48,
+                  background: "#fff",
+                  borderRadius: "50%",
+                  p: 1,
+                }}
+              >
+                <Box
+                  sx={{
+                    width: "100%",
+                    aspectRatio: "1",
+                    background: "url('/assets/drake.webp')",
+                    backgroundPosition: "center",
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    borderRadius: "50%",
+                  }}
+                />
+              </Box>
+            </Box>
+          </Box>
         </Box>
       </Box>
+      <style>
+        {`
+        .bkg {
+          position: absolute;
+          top: 0;
+          filter: blur(28px);
+          opacity: 0.24;
+          width: 100%;
+          height: 100vh;
+        }
 
-      <Box sx={{ p: 3, position: "absolute", width: "100%", bottom: 0 }}>
-        <Box display="flex" justifyContent="center" mb={1}>
-          <Button variant="contained" onClick={getAccess}>
-            Give Permission
-          </Button>
-        </Box>
-        <Box display="flex" justifyContent="center" mb={1}>
-          <Typography variant="body2" textAlign="center">
-            Pre-save links:
-          </Typography>
-        </Box>
+        .cover {
+          width: 100%;
+          border-radius: 12px;
+          aspect-ratio: 1;
 
-        <Box display="flex" justifyContent="center">
-          <Box
-            sx={{
-              width: 48,
-              height: 48,
-              background: "#fff",
-              borderRadius: "50%",
-              p: 1,
-            }}
-          >
-            <Box
-              sx={{
-                width: "100%",
-                aspectRatio: "1",
-                background: "url('/assets/drake.webp')",
-                backgroundPosition: "center",
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-                borderRadius: "50%",
-              }}
-            />
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          filter:
+            drop-shadow(0px 16.9875px 16.9875px rgba(0, 0, 0, 0.4));
+        }
+      `}
+      </style>
+    </>
   );
 };
 
