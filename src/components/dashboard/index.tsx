@@ -35,8 +35,8 @@ const Dashboard = () => {
           sx={{
             zIndex: 10,
             width: "100%",
-            maxWidth: { md: "400px", xs: "300px" },
-            marginTop: { md: "10vh", xs: "5vh" },
+            maxWidth: { md: "320px", xs: "300px" },
+            marginTop: { md: "18vh", xs: "5vh" },
             ".glare-wrapper": {
               borderRadius: "16px !important",
             },
@@ -86,7 +86,7 @@ const Dashboard = () => {
         <Box
           sx={{
             background:
-              "linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, #0D0D0D 50%)",
+              "linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, #0D0D0D 40%)",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             width: "100%",
@@ -118,16 +118,16 @@ const Dashboard = () => {
               textAlign="center"
               color="text.secondary"
             >
-              Drake
+              Drake, 2022
             </Typography>
           </Box>
 
-          <Box sx={{ p: 1 }}>
-            {/* <Box display="flex" justifyContent="center" mb={1}>
+          {/* <Box sx={{ p: 1 }}>
+            <Box display="flex" justifyContent="center" mb={1}>
               <Button variant="contained" onClick={getAccess}>
                 Give Permission
               </Button>
-            </Box> */}
+            </Box>
             <Box display="flex" justifyContent="center" mb={1}>
               <Typography variant="body2" textAlign="center">
                 Pre-save links:
@@ -157,7 +157,7 @@ const Dashboard = () => {
                 />
               </Box>
             </Box>
-          </Box>
+          </Box> */}
         </Box>
       </Box>
       <style>
@@ -165,8 +165,8 @@ const Dashboard = () => {
         .bkg {
           position: absolute;
           top: 0;
-          filter: blur(28px);
-          opacity: 0.24;
+          filter: blur(16px);
+          opacity: 0.16;
           width: 100%;
           height: 100vh;
         }
