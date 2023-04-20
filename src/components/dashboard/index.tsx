@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import Tilt from "react-parallax-tilt";
+import Image from "next/image";
 import { useDeviceOrientation } from "../../utils/useDeviceOrientation";
 
 const divideBy = 1;
@@ -104,22 +105,145 @@ const Dashboard = () => {
             zIndex: 1000,
             marginTop: "-50px",
             maxWidth: { md: "380px", xs: "280px" },
+            height: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Box display="flex" justifyContent="center">
-            <Typography variant="h3" textAlign="center">
-              HONESTLY, NEVERMIND
-            </Typography>
+          <Box>
+            <Box display="flex" justifyContent="center">
+              <Typography variant="h3" textAlign="center">
+                HONESTLY, NEVERMIND
+              </Typography>
+            </Box>
+
+            <Box display="flex" justifyContent="center" mt={1.5}>
+              <Typography
+                variant="body1"
+                textAlign="center"
+                color="text.secondary"
+              >
+                Drake, 2022
+              </Typography>
+            </Box>
           </Box>
 
-          <Box display="flex" justifyContent="center" mt={1}>
-            <Typography
-              variant="body1"
-              textAlign="center"
-              color="text.secondary"
+          <Box paddingX={2} pt={1} pb={2}>
+            <Box display="flex" justifyContent="center" mb={1.5}>
+              <Typography variant="body2" textAlign="center">
+                Pre-save links:
+              </Typography>
+            </Box>
+
+            <Box display="flex" justifyContent="center" gap={2}>
+              <Box
+                sx={{
+                  width: 48,
+                  height: 48,
+                  background: "#fff",
+                  borderRadius: "50%",
+                  p: 1.2,
+                }}
+              >
+                <Box
+                  sx={{
+                    width: "100%",
+                    aspectRatio: "1",
+                    background: "url('/assets/spotify.svg')",
+                    backgroundPosition: "center",
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    borderRadius: "50%",
+                  }}
+                />
+              </Box>
+
+              <Box
+                sx={{
+                  width: 48,
+                  height: 48,
+                  background: "#fff",
+                  borderRadius: "50%",
+                  p: 1.2,
+                }}
+              >
+                <Box
+                  sx={{
+                    width: "100%",
+                    aspectRatio: "1",
+                    background: "url('/assets/apple-music.svg')",
+                    backgroundPosition: "center",
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    borderRadius: "50%",
+                  }}
+                />
+              </Box>
+
+              <Box
+                sx={{
+                  width: 48,
+                  height: 48,
+                  background: "#fff",
+                  borderRadius: "50%",
+                  p: 1.2,
+                }}
+              >
+                <Box
+                  sx={{
+                    width: "100%",
+                    aspectRatio: "1",
+                    background: "url('/assets/spotify.svg')",
+                    backgroundPosition: "center",
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    borderRadius: "50%",
+                  }}
+                />
+              </Box>
+
+              <Box
+                sx={{
+                  width: 48,
+                  height: 48,
+                  background: "#fff",
+                  borderRadius: "50%",
+                  p: 1.2,
+                }}
+              >
+                <Box
+                  sx={{
+                    width: "100%",
+                    aspectRatio: "1",
+                    background: "url('/assets/apple-music.svg')",
+                    backgroundPosition: "center",
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    borderRadius: "50%",
+                  }}
+                />
+              </Box>
+            </Box>
+
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              gap={1}
+              mt={3}
             >
-              Drake, 2022
-            </Typography>
+              <Image src="/assets/madverse.png" alt="" width={35} height={13} />
+
+              <Typography
+                variant="body2"
+                textAlign="center"
+                color="text.secondary"
+              >
+                Powered by MADverse
+              </Typography>
+            </Box>
           </Box>
 
           {/* <Box sx={{ p: 1 }}>
