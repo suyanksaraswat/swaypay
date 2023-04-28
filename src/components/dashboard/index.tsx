@@ -37,7 +37,7 @@ const Dashboard = () => {
             zIndex: 10,
             width: "100%",
             maxWidth: { md: "320px", xs: "300px" },
-            marginTop: { md: "18vh", xs: "5vh" },
+            marginTop: "12vh",
             ".glare-wrapper": {
               borderRadius: "16px !important",
             },
@@ -53,7 +53,7 @@ const Dashboard = () => {
           >
             <Box
               sx={{
-                aspectRatio: "1/1.25",
+                aspectRatio: "1/1.5",
                 borderRadius: 1.5,
                 background:
                   "linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0.52%, rgba(255, 255, 255, 0) 93.27%)",
@@ -103,7 +103,7 @@ const Dashboard = () => {
         <Box
           sx={{
             zIndex: 1000,
-            marginTop: "-50px",
+            marginTop: "-140px",
             maxWidth: { md: "380px", xs: "280px" },
             height: "100%",
             display: "flex",
