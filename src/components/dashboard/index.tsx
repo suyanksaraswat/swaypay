@@ -50,6 +50,7 @@ const Dashboard = () => {
             glareEnable={true}
             glareMaxOpacity={0.16}
             glarePosition="all"
+            trackOnWindow={true}
           >
             <Box
               sx={{
