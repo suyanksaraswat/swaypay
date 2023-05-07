@@ -2,6 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import Tilt from "react-parallax-tilt";
 import Image from "next/image";
 import { useDeviceOrientation } from "../../utils/useDeviceOrientation";
+import { useEffect } from "react";
 
 const divideBy = 1;
 
@@ -18,8 +19,25 @@ const Dashboard = () => {
     await requestAccess();
   };
 
+  useEffect(() => {
+    const btn = document.getElementById("gyro-btn");
+
+    if (btn) {
+      btn.click();
+    }
+  }, []);
+
   return (
     <>
+      <Button
+        id="gyro-btn"
+        sx={{ display: "none" }}
+        onClick={() => {
+          getAccess();
+        }}
+      >
+        Gyro Access
+      </Button>
       <Box
         sx={{
           height: "100vh",
@@ -54,6 +72,7 @@ const Dashboard = () => {
           >
             <Box
               sx={{
+                zIndex: 10,
                 aspectRatio: "1/1.5",
                 borderRadius: 1.5,
                 background:
