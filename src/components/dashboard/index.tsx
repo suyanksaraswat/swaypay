@@ -19,25 +19,8 @@ const Dashboard = () => {
     await requestAccess();
   };
 
-  useEffect(() => {
-    const btn = document.getElementById("gyro-btn");
-
-    if (btn) {
-      btn.click();
-    }
-  }, []);
-
   return (
     <>
-      <Button
-        id="gyro-btn"
-        sx={{ display: "none" }}
-        onClick={() => {
-          getAccess();
-        }}
-      >
-        Gyro Access
-      </Button>
       <Box
         sx={{
           height: "100vh",
@@ -149,6 +132,15 @@ const Dashboard = () => {
               </Typography>
             </Box>
           </Box>
+
+          <Button
+            id="gyro-btn"
+            size="small"
+            variant="contained"
+            onClick={getAccess}
+          >
+            Gyro Access
+          </Button>
 
           <Box paddingX={2} pt={1} pb={2}>
             <Box display="flex" justifyContent="center" mb={1.5}>
