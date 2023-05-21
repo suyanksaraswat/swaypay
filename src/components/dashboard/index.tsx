@@ -133,14 +133,14 @@ const Dashboard = () => {
             </Box>
           </Box>
 
-          <Button
+          {/* <Button
             id="gyro-btn"
             size="small"
             variant="contained"
             onClick={getAccess}
           >
             Gyro Access
-          </Button>
+          </Button> */}
 
           <Box paddingX={2} pt={1} pb={2}>
             <Box display="flex" justifyContent="center" mb={1.5}>
@@ -150,50 +150,6 @@ const Dashboard = () => {
             </Box>
 
             <Box display="flex" justifyContent="center" gap={2}>
-              <Box
-                sx={{
-                  width: 48,
-                  height: 48,
-                  background: "#fff",
-                  borderRadius: "50%",
-                  p: 1.2,
-                }}
-              >
-                <Box
-                  sx={{
-                    width: "100%",
-                    aspectRatio: "1",
-                    background: "url('/assets/spotify.svg')",
-                    backgroundPosition: "center",
-                    backgroundSize: "contain",
-                    backgroundRepeat: "no-repeat",
-                    borderRadius: "50%",
-                  }}
-                />
-              </Box>
-
-              <Box
-                sx={{
-                  width: 48,
-                  height: 48,
-                  background: "#fff",
-                  borderRadius: "50%",
-                  p: 1.2,
-                }}
-              >
-                <Box
-                  sx={{
-                    width: "100%",
-                    aspectRatio: "1",
-                    background: "url('/assets/apple-music.svg')",
-                    backgroundPosition: "center",
-                    backgroundSize: "contain",
-                    backgroundRepeat: "no-repeat",
-                    borderRadius: "50%",
-                  }}
-                />
-              </Box>
-
               <Box
                 sx={{
                   width: 48,
